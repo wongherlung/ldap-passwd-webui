@@ -1,4 +1,4 @@
-REPO=npenkov/docker-ldap-passwd-webui
+REPO="${ECR}/infra/ldap-passwd-webui"
 VER=1.2
 
 .PHONY: all build push
@@ -6,7 +6,7 @@ VER=1.2
 all: init build docker push clean
 
 init:
-	dep ensure
+	go mod tidy
 	
 build:
 	GOOS=linux go build -o ldap-pass-webui main.go
