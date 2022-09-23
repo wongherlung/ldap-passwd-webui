@@ -9,7 +9,7 @@ The configuration is made with environment variables:
 |Env variable|Default value|Description|
 |------------|-------------|-----------|
 |LPW_TITLE|Change your global password for example.org|Title that will appear on the page|
-|LPW_HOST||LDAP Host to connect to|
+|LPW_HOSTS||LDAP Hosts to connect to, delimited with comma|
 |LPW_PORT|636|LDAP Port (389|636 are default LDAP/LDAPS)|
 |LPW_ENCRYPTED|true|Use enrypted communication|
 |LPW_START_TLS|false|Start TLS communication|

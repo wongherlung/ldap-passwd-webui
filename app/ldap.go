@@ -109,7 +109,7 @@ func (ls *LDAPClient) ModifyPassword(name, passwd, newPassword string) error {
 }
 
 // NewLDAPClient : Creates new LDAPClient capable of binding and changing passwords
-func NewLDAPClient() *LDAPClient {
+func NewLDAPClient(hostString string) *LDAPClient {
 
 	securityProtocol := SecurityProtocolUnencrypted
 	if envBool("LPW_ENCRYPTED", true) {
@@ -120,7 +120,7 @@ func NewLDAPClient() *LDAPClient {
 	}
 
 	return &LDAPClient{
-		Host:             envStr("LPW_HOST", ""),
+		Host:             hostString,
 		Port:             envInt("LPW_PORT", 636), // 389
 		SecurityProtocol: securityProtocol,
 		SkipVerify:       envBool("LPW_SSL_SKIP_VERIFY", false),

@@ -117,11 +117,16 @@ func ChangePassword(w http.ResponseWriter, req *http.Request) {
 	}
 
 	if len(alerts) == 0 {
-		client := NewLDAPClient()
-		if err := client.ModifyPassword(un, oldPassword[0], newPassword[0]); err != nil {
-			alerts["error"] = fmt.Sprintf("%v", err)
-		} else {
-			alerts["success"] = "Password successfuly changed"
+		hostString := envStr("LPW_HOSTS", "")
+		hosts := strings.Split(hostString, ",")
+		for _, host := range hosts {
+			log.Printf("Changing password on %s", host)
+			client := NewLDAPClient(host)
+			if err := client.ModifyPassword(un, oldPassword[0], newPassword[0]); err != nil {
+				alerts["error"] = fmt.Sprintf("%v", err)
+			} else {
+				alerts["success"] = "Password successfuly changed"
+			}
 		}
 	}
 
