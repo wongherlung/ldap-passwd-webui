@@ -54,6 +54,7 @@ type pageData struct {
 	Username    string
 	Alerts      map[string]string
 	CaptchaId   string
+	PathPrefix  string
 }
 
 // ServeAssets : Serves the static assets
@@ -63,7 +64,8 @@ func ServeAssets(w http.ResponseWriter, req *http.Request) {
 
 // ServeIndex : Serves index page on GET request
 func ServeIndex(w http.ResponseWriter, req *http.Request) {
-	p := &pageData{Title: getTitle(), CaptchaId: captcha.New(), Pattern: getPattern(), PatternInfo: getPatternInfo()}
+	p := &pageData{Title: getTitle(), CaptchaId: captcha.New(), Pattern: getPattern(), PatternInfo: getPatternInfo(), PathPrefix: getURLPathPrefix()}
+
 	t, e := template.ParseFiles(path.Join("templates", "index.html"))
 	if e != nil {
 		log.Printf("Error parsing file %v\n", e)
@@ -123,7 +125,7 @@ func ChangePassword(w http.ResponseWriter, req *http.Request) {
 		}
 	}
 
-	p := &pageData{Title: getTitle(), Alerts: alerts, Username: un, CaptchaId: captcha.New(), Pattern: getPattern(), PatternInfo: getPatternInfo()}
+	p := &pageData{Title: getTitle(), Alerts: alerts, Username: un, CaptchaId: captcha.New(), Pattern: getPattern(), PatternInfo: getPatternInfo(), PathPrefix: getURLPathPrefix()}
 
 	t, e := template.ParseFiles(path.Join("templates", "index.html"))
 	if e != nil {

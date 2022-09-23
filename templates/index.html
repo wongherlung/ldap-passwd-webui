@@ -8,7 +8,7 @@
 
     <title>{{.Title}}</title>
 
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="{{.PathPrefix}}/style.css">
   </head>
 
   <body>
@@ -62,7 +62,7 @@
         <p>{{.PatternInfo}}</p>
         <p>Type the numbers you see in the picture below:</p>
         <p>
-          <img id=image src="/captcha/{{.CaptchaId}}.png" alt="Captcha image">
+          <img id=image src="{{.PathPrefix}}/captcha/{{.CaptchaId}}.png" alt="Captcha image">
         </p>
         <a href="#" onclick="reload()">Reload</a>
         <input type=hidden name=captchaId value="{{.CaptchaId}}">

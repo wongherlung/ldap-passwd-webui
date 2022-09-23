@@ -16,6 +16,7 @@ The configuration is made with environment variables:
 |LPW_SSL_SKIP_VERIFY|true|Skip TLS CA verification|
 |LPW_USER_DN|uid=%s,ou=people,dc=example,dc=org|Filter expression to search the user for Binding|
 |LPW_USER_BASE|ou=people,dc=example,dc=org|Base to use when doing the binding|
+|LPW_URL_PATH_PREFIX|""|Path prefix, if required|
 
 ## Running
 

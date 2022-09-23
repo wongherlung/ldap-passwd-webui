@@ -17,6 +17,10 @@ func getPatternInfo() string {
 	return envStr("LPW_PATTERN_INFO", "Password must be at least 8 characters long.")
 }
 
+func getURLPathPrefix() string {
+	return envStr("LPW_URL_PATH_PREFIX", "")
+}
+
 func envStr(key, defaultValue string) string {
 	val := os.Getenv(key)
 	if val != "" {

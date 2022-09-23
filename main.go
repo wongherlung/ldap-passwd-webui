@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/dchest/captcha"
-	"github.com/npenkov/ldap-passwd-webui/app"
+	"github.com/wongherlung/ldap-passwd-webui/app"
 )
 
 func main() {
