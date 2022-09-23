@@ -125,7 +125,7 @@ func ChangePassword(w http.ResponseWriter, req *http.Request) {
 			if err := client.ModifyPassword(un, oldPassword[0], newPassword[0]); err != nil {
 				alerts["error"] = fmt.Sprintf("%v", err)
 			} else {
-				alerts["success"] = "Password successfuly changed"
+				alerts["success"] = "Password successfully changed"
 			}
 		}
 	}
