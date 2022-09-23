@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM 825683588007.dkr.ecr.ap-southeast-1.amazonaws.com/estl/ubuntu:20.04
 
 WORKDIR /app
 
@@ -9,4 +9,4 @@ RUN chmod +x /app/ldap-pass-webui
 
 EXPOSE 8080
 
-ENTRYPOINT [ "/app/ldap-pass-webui" ]
+ENTRYPOINT [ "./ldap-pass-webui" ]
